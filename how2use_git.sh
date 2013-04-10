@@ -23,6 +23,11 @@
 	or simplely use $git push
 	$git commit -a #auto commit CLI manager
 		so $git commit -a -m [messg] is more convenient
+	NOTE:
+		eg. you want to add a file to the .git
+			$touch [filename]
+			$git add [that filename]
+		
 6.Manage a branch
 	create a new branch $git branch [new branch name]	
 	show current branch $git branch
