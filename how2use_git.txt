@@ -22,7 +22,7 @@
 		default branch is "master"
 	or simplely use $git push
 	$git commit -a #auto commit CLI manager
-
+		so $git commit -a -m [messg] is more convenient
 6.Manage a branch
 	create a new branch $git branch [new branch name]	
 	show current branch $git branch
