@@ -24,10 +24,12 @@
 	$git commit -a #auto commit CLI manager
 		so $git commit -a -m [messg] is more convenient
 	NOTE:
-		eg. you want to add a file to the .git
+		eg1. you want to add a file to the .git
 			$touch [filename]
 			$git add [that filename]
-		
+		eg2. you want to change abc.c to abcd.c
+			not use $mv abc.c abcd.c
+			use $git mv abc.c abcd.c instead
 6.Manage a branch
 	create a new branch $git branch [new branch name]	
 	show current branch $git branch
