@@ -20,6 +20,7 @@
 	$git commit -m [message]
 	$git push [alias] [branch_name]
 		default branch is "master"
+	or simplely use $git push
 	$git commit -a #auto commit CLI manager
 
 6.Manage a branch

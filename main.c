@@ -30,8 +30,8 @@ int main()
     fin = fopen(fileName, "r");
     fout = fopen("result.txt", "w");
 
-    while ((c=fgetc(fin))!=EOF) sorce[len++]=c;
-    sorce[len]='\0';
+    while ((c = fgetc(fin)) != EOF) sorce[len++] = c;
+    sorce[len] = '\0';
 /*
     if (flag) compare();
     else
