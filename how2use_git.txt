@@ -1,8 +1,8 @@
 1.If you want to use SSH (RSA key) login, get hang of it.
 
 2.Set user name
-	git config --global user.name [your name]
-	git config --global user.email [email]
+	$git config --global user.name [your name]
+	$git config --global user.email [email]
 
 3.Make working directory
 	mkdir and cd into it
@@ -10,7 +10,7 @@
 			first use $git clone and then use $git init
 		and make an alias of the repo name using:
 			$git remote add [alias] [repo destination]
-	git init
+	$git init
 
 4.Create your files
 	after creating your own files use $git add 
