@@ -35,7 +35,11 @@
 	show current branch $git branch
 	swithch to a branch $git checkout [branch name]
 	
-7.Merge branches
+7.#Merge branches
 	#this action will diff anything between certain branches and merge them
 	$git checkout [branch where the code will be added to]
 	$git merge [branch which will be merged]
+
+#8.Additional notices running git in windows using msysgit
+	#the line ending pattern is quite an annoying issue
+	#I'm setting core.autocrlf = false
