@@ -26,9 +26,14 @@ struct lineending{
 
 lineending LE = {0, 0, 0};
 
-int insert_at(char *a, int )
+//insert exectly at a[iterator]
+int insert_char(char *a, int iterator, char c){
+	int i;
+	for (i = 0; i < iterator; a++);
 
+}
 
+//TODO /r before EOF
 
 
 
@@ -49,13 +54,16 @@ int main()
 		c = fgetc(fin);
 		if (c == '\r') {
 			if ((c = fgetc(fin)) == '\n') {
-				LE.is_CRLF = 1;printf("CRLF filefomat, will be changed to LF\n");break;
+				LE.is_CRLF = 1;printf("CRLF filefomat, "
+								"will be changed to LF\n");break;
 			}
 			else{
-				LE.is_CR = 1;printf("CR filefomat, will be changed to LF\n");break;
+				LE.is_CR = 1;printf("CR filefomat, "
+								"will be changed to LF\n");break;
 			}
 		}
-		if (c == '\n') LE.is_LF = 1;printf("LF filefoamt, nothing will be changed\n");break;
+		if (c == '\n') LE.is_LF = 1;printf("LF filefoamt, "
+						"nothing will be changed\n");break;
 	}while(c != EOF);
 	fin = temp;
     while ((c = fgetc(fin)) != EOF) source[len++] = c;
