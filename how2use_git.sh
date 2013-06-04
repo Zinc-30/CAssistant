@@ -1,4 +1,5 @@
 1.If you want to use SSH (RSA key) login, get hang of it.
+	ssh-keygen -C "[email]" -t rsa
 
 2.Set user name
 	$git config --global user.name [your name]

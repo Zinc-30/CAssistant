@@ -1,7 +1,7 @@
 #include "char_oper.h"
+#include <stdio.h>
 
-#define EOF -1
-
+//del char at n
 void del_at_n(int n, char *a){
 	if ( a[n] == EOF ) return;
 	/* for security soncern
@@ -18,7 +18,7 @@ void del_at_n(int n, char *a){
 	return;
 }
 
-//insert exectly at a[n]
+//insert char at a[n]
 void ins_c_at_n(int n, char *a, char c){
 	int ins_posi = n;
 	
@@ -31,8 +31,7 @@ void ins_c_at_n(int n, char *a, char c){
 	while ( n != ins_posi ) {
 		a[n + 1] = a[n], n--;
 	}
+	a[n + 1] = a[n];
 	a[n] = c;
 
 }
-
-
