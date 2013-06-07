@@ -1,0 +1,45 @@
+lda  	取变量地址
+lod 	取变量值
+ldci 	取int类型常数
+ldcf  	取float类型常数
+ldcc  	取char类型常数
+ldc   	取bool类型常数
+fjp   	错误跳跃
+tjp   	正确跳跃
+ujp  	无条件跳跃
+stn  	存储并保留值
+sto  	存储不保留值
+ind  	根据堆栈上的地址取值
+ixa  	根据堆栈上的地址取地址
+adi  	int类型加法
+adr  	float类型加法
+sbi  	int类型减法
+sbr  	float类型减法
+mpi 	int类型乘法
+mpr  	float类型乘法
+dvi   	int类型除法
+dvr   	float类型除法
+mod  	%运算
+grt   	>运算
+les   	<运算
+geq  	>=运算
+leq   	<=运算
+equ  	==运算
+not   	!运算
+neq  	!=运算
+and  	位与运算
+or    	位或运算
+mst  	标志函数调用的参数的开始
+ent  	函数定义开始
+ret  	函数返回
+cup   	调用函数
+lab   	标号
+rdc	从屏幕读取一个字符
+rdi	从屏幕读取一个整数
+rdf	从屏幕读取一个浮点数
+wrc	输出一个字符到屏幕
+wri	输出一个整数到屏幕
+wrf	输出一个浮点数到屏幕
+
+---------------- NOTE ------------------
+Some p-codes are user-defined!
