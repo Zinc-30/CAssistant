@@ -26,7 +26,7 @@ int del_comment(char* src) {
 			}
 			del_at_n (i, src);		
 			del_at_n (i, src);
-			//if ( src[i] == '\n' ) del_at_n (i, src);
+			if ( src[i - 1] == '\n' ) del_at_n (i - 1, src);
 		}
 	}
 	return 0;	
