@@ -1,25 +1,58 @@
+# Project: CA
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++
+CC       = gcc
+OBJ      = char_oper.o del_comment.o file_io.o indent.o parentheses.o main.o identifier.o include.o define.o compare.o presolve.o
+LINKOBJ  = char_oper.o del_comment.o file_io.o indent.o parentheses.o main.o identifier.o include.o define.o compare.o presolve.o
+LIBS     = #-L"F:/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -g3
+INCS     = #-I"F:/Dev-Cpp/MinGW32/include"
+CXXINCS  = #-I"F:/Dev-Cpp/MinGW32/include"
+BIN      = ca 
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
 
 
-SOURCES = main.c char_oper.c indent.c parentheses.c del_comment.c file_io.c
-OBJS = $(SOURCES: .c=.o)
-OBJDIR = ./#obj/
-CC = gcc
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
 
-EXEC = ca
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-CFLAGS = -c -g -Wall
-LDFLAGS = 
+char_oper.o: char_oper.c
+	$(CC) -c char_oper.c -o char_oper.o $(CFLAGS)
 
-all: $(SOURCES) $(EXEC)
+del_comment.o: del_comment.c
+	$(CC) -c del_comment.c -o del_comment.o $(CFLAGS)
 
-$(EXEC): $(OBJS)
-	$(CC) $(LDFLAGS) $(OBJS) -o $(OBJDIR)$(EXEC) 
+file_io.o: file_io.c
+	$(CC) -c file_io.c -o file_io.o $(CFLAGS)
 
-.c.o:
-	$(CC) $(CFLAGS) $< -o $(OBJDIR)$@
+indent.o: indent.c
+	$(CC) -c indent.c -o indent.o $(CFLAGS)
 
-clean:
-	@rm *.o $(EXEC)
+parentheses.o: parentheses.c
+	$(CC) -c parentheses.c -o parentheses.o $(CFLAGS)
 
-run: all
-	$(OBJDIR)$(EXEC)
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+identifier.o: identifier.c
+	$(CC) -c identifier.c -o identifier.o $(CFLAGS)
+
+include.o: include.c
+	$(CC) -c include.c -o include.o $(CFLAGS)
+
+define.o: define.c
+	$(CC) -c define.c -o define.o $(CFLAGS)
+
+compare.o: compare.c
+	$(CC) -c compare.c -o compare.o $(CFLAGS)
+
+presolve.o: presolve.c
+	$(CC) -c presolve.c -o presolve.o $(CFLAGS)

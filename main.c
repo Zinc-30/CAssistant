@@ -120,7 +120,8 @@ int menu_1(char *src, char* filename) {
 			case '5': examine(src, strlen(src)-1); break;
 			case '7':
 				printf("\n============================================\n");
-				for (int i=0; i<strlen(src); ++i) printf("%c", src[i]);
+				int i = 0;
+				for (i = 0; i<strlen(src); ++i) printf("%c", src[i]);
 				printf("\n============================================\n");
 				break;
 			case '8': 
