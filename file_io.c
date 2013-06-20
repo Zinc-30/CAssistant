@@ -18,6 +18,7 @@ int parse_file2char(const char* filename, char* src) {
 	for (i = 0; src[i] - EOF; i++) {
 		src[i] = fgetc(fin);
 	}
+	
 	fclose(fin);
 	
 //convert line endings
@@ -60,7 +61,11 @@ int parse_file2char(const char* filename, char* src) {
 			del_at_n(i, src);
 		}
 	}
-
+	
+	i = 0;
+	while (src[i] != EOF) ++i;
+	src[i+1] = '\0';
+	
     return 0;
 }
 
@@ -71,7 +76,6 @@ int parse_char2file(const char* filename, char* src) {
 	for (i = 0; src[i] - EOF; i++) {
 		fputc(src[i], fout);
 	}
-//	fputc(0, fout);
 	fclose(fout);
 	return 0;
 }

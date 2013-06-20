@@ -9,11 +9,15 @@
 #include "del_comment.h"
 #include "parentheses.h"
 #include "indent.h"
+#include "identifier.h"
+#include "define.h"
+#include "include.h"
+#include "compare.h"
+#include "presolve.h"
 
 //DEPRECATED
 /*
 #include "style.h"
-#include "identifier.h"
 #include "memory.h"
 #include "compare.h"
 */
@@ -28,6 +32,9 @@
 
 
 	struct Error *head;
+	
+	char cpath[100], path[100];
+	
 /**************************************/
 
 int menu_1(char *src, char* filname);
@@ -37,7 +44,7 @@ int main()
 {
 
 	int len = 0, len2 = 0, flag = 0;
-	char fileName[20], fileName2[20];
+	char fileName[100], fileName2[100];
 	char src[MAXLENGTH], src2[MAXLENGTH];
 	int choice;
 	
@@ -56,11 +63,15 @@ int main()
 			case '1':
 				printf("Enter the name of source file:");
 	    		scanf("%s", fileName);
+	    		strcpy(path, fileName);
+	    		getPath(path);
 	    		parse_file2char(fileName, src);
 	    		menu_1(src, fileName); break;
 	    	case '2':
 	    		printf("Enter the name of first source file:");
 	    		scanf("%s", fileName);
+	    		strcpy(path, fileName);
+	    		getPath(path);
 	    		printf("Enter the name of another source file:");
 	    		scanf("%s", fileName2);
 	    		menu_2(src, src2); break;
@@ -84,7 +95,9 @@ int menu_1(char *src, char* filename) {
 			"[1]Indent fix\n"
 			"[2]Parentheses matching check\n"
 			"[3]Delete comments\n"
-			/*"[4]Coding style assesment\n"*/
+			"[4]Load #include and replace #define after deleting comments\n"
+			"[5]Examine identifiers\n"
+			"[7]Show code\n"
 			"[8]Save and go upper menu\n"
 			"[9]Go upper menu without saving\n"
 		);
@@ -96,7 +109,20 @@ int menu_1(char *src, char* filename) {
 			case '1': indent(src); break;
 			case '2': parentheses(src); break;
 			case '3': del_comment(src); break;
-			case '4': //assessment(); break;//TODO
+			case '4': 
+				printf("Input the path of includes: \n");
+				scanf("%s", cpath);
+				include(cpath, path, src);
+				del_comment(src);
+				presolve(src);
+				define(src);
+				break;
+			case '5': examine(src, strlen(src)-1); break;
+			case '7':
+				printf("\n============================================\n");
+				for (int i=0; i<strlen(src); ++i) printf("%c", src[i]);
+				printf("\n============================================\n");
+				break;
 			case '8': 
 				strcpy(temp, filename);
 				strcpy(filename, "mod_");
@@ -114,22 +140,22 @@ int menu_2(char *src, char *src2) {
 	char index = 0;
 	printf(
 		"Choose an action:\n"
-		"[0]\n"
-		"[1]\n"
+		"[0]Compare\n"
+/*		"[1]\n"
 		"[2]\n"
 		"[3]\n"
 		"[4]\n"
-		
+*/		
 		"[9]Upper menu\n"
 	);
 	scanf ("%d", &index);
 	switch (index) {
-		case '0': ; break;
-		case '1': ; break;
+		case '0': compare(src, src2); break;
+/*		case '1': ; break;
 		case '2': ; break;
 		case '3': ; break;
 		case '4': ; break;
-		
+*/		
 		case '9': return 0;
 	}
 }

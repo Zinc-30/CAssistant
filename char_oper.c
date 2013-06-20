@@ -4,7 +4,7 @@
 //del char at n
 void del_at_n(int n, char *a){
 	if ( a[n] == EOF ) return;
-	/* for security soncern
+	/* for security concern
 	int length = 0;
 	for (length = 1; a[length] != EOF; length++){
 	}
