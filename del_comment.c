@@ -11,6 +11,7 @@ int del_comment(char* src) {
 			while ( src[k] != '\n' ) {
 				del_at_n (k, src);
 			}
+			if ( src[i - 1] == '\n') del_at_n (i - 1, src); 
 		}
 		if ( src[i] == '/' && src[i + 1] == '*' ) {
 			while ( !( src[i] == '*' &&
