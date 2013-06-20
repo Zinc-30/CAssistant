@@ -188,3 +188,163 @@ int indent(char* src) {
 	//+ add one \t
 	//- sub one \t
 ***************************************************/
+
+/*
+????
+
+??/r /n
+	??/r /n ????? /t
+
+????,?????
+	1, ????
+		{} [] () "" '' <>????
+	 / * * / pair
+	2, ????
+	3, ????
+		1, ????????
+		2, ??????
+			1, ??? a*b==c
+			2, ??? a * b == c
+			3, ;?????
+			4, indentation ???
+		3, ????
+		++ -- * % + - << >> ^ \ | || & && = == 
+		! * (?????????*?????????,
+			?????????????????????,
+			???????*??????????????
+			?????,?????????)
+
+
+The position of braces is less important, although people hold passionate beliefs. We have chosen one of several popular styles. Pick a style that suits you, then use it consistently.
+-----The C programming language: Kernighan and Ritchie
+
+K&R style
+int main (int argc, char *argv[]) 
+{
+	if (argc == 2){
+		func1();
+	} else 
+		func2();
+	func0();
+	return 0;
+}
+
+OTBS style
+int main (int argc, char *argv[]) 
+{
+	if (argc == 2){
+		func1();
+	} else {
+		func2();
+	}
+	func0();
+	return 0;
+}
+
+Stroustrup style
+int main (int argc, char *argv[]) 
+{
+	if (argc == 2){
+		func1();
+	}
+	else {
+		func2();
+	}
+	func0();
+	return 0;
+}
+
+Allman style (BSD style)
+int main (int argc, char *argv[]) 
+{
+	if (argc == 2)
+	{
+		func1();
+	}
+	else
+	{
+		func2();
+	}
+	func0();
+	return 0;
+}
+
+Whitesmiths style
+int main (int argc, char *argv[]) 
+	{
+	if (argc == 2)
+		{
+		func1();
+		}
+	else
+		{
+		func2();
+		}
+	func0();
+	return 0;
+	}
+
+GNU style
+int main (int argc, char *argv[]) 
+{
+  if (argc == 2)
+    {
+      func1();
+	}
+  else
+    {
+      func2();
+    }
+  func0();
+  return 0;
+}
+
+
+
+for (int i=0; i < x; i++)
+
+(setq realwhitesmith '(
+      (c-basic-offset . 3)
+      (c-comment-only-line-offset . 0)
+      (c-offsets-alist
+
+      (c . 0)
+      (comment-intro . 0)
+
+      (statement-block-intro . 0)
+      (statement-cont . +)
+
+      (substatement . +)
+      (substatement-open . +)
+
+      (block-open . +)
+      (block-close . 0)
+
+      (defun-open . +)
+      (defun-close . 0)
+      (defun-block-intro . 0)
+      (func-decl-cont . +)
+
+      (class-open . +)
+      (class-close . +)
+      (inclass . +)
+      (access-label . -)
+      (inline-open . +)
+      (inline-close . 0)
+
+      (extern-lang-open . 0)
+      (extern-lang-close . 0)
+      (inextern-lang . 0)
+
+      (statement-case-open +)
+
+      (namespace-open . 0)
+      (namespace-close . 0)
+      (innamespace . 0)
+
+      (label . 0)
+      )
+))
+
+
+*/
