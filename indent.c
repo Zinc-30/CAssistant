@@ -22,20 +22,23 @@ int indent(char* src) {
 	}	
 ************************************************/
 
-
+	int unmod_count, mod_count;
+	unmod_count = mod_count = 0;
 	//delete all spaces and /t at the beginning of a line
 	{
 		int i;
 		for ( i = 0; src[i] != EOF; i++ ) {
 			while ( src[i] == '\n' && 
 					( src[i + 1] == ' ' ||
-					src[i + 1] == '\t' ))
+					src[i + 1] == '\t' )||
+					src[i + 1] == '\n'  /*del surplus \n*/
+				)
 			{
 					del_at_n(i + 1, src);
+					unmod_count++;
 			}
 		}
 	}
-	
 	
 	//insert tab
 	{
@@ -53,12 +56,17 @@ int indent(char* src) {
 					k = indent_level;
 					while (k--) {
 						ins_c_at_n(i + 1, src, '\t');
+						mod_count++;
 					}
 					break;
 				default: break;
 			}
 		}
 	}
+	float rate = 0;
+	mod_count > unmod_count? rate = 1.0 * unmod_count / mod_count: 
+			rate = 1.0 * mod_count / unmod_count;
+	printf("You've got %.2f for your coding style\n", rate);
 
 	return 0;
 }
