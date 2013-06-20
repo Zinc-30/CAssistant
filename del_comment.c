@@ -11,7 +11,13 @@ int del_comment(char* src) {
 			while ( src[k] != '\n' ) {
 				del_at_n (k, src);
 			}
-			if ( src[i - 1] == '\n') del_at_n (i - 1, src); 
+			while (src[k - 1] == ' ' || src[k - 1] == '\t') {
+				if (src[k - 1] == ' ' || src[k - 1] == '\t') {
+					del_at_n ( --k, src );
+				}
+			}
+			
+			if ( src[k - 1] == '\n') del_at_n (k - 1, src); 
 		}
 		if ( src[i] == '/' && src[i + 1] == '*' ) {
 			while ( !( src[i] == '*' &&
@@ -19,7 +25,8 @@ int del_comment(char* src) {
 				del_at_n (i, src);		
 			}
 			del_at_n (i, src);		
-			del_at_n (i, src);		
+			del_at_n (i, src);
+			//if ( src[i] == '\n' ) del_at_n (i, src);
 		}
 	}
 	return 0;	
