@@ -7,8 +7,8 @@ int indent(char* src) {
 
 	//TODO: if no err parentheses match then perform action
 
-/***************************************************
-//TODO:delete spaces before \n
+/***************************************************/
+//delete spaces before \n
 	{
 		int i;
 		for ( i = 0; src[i] != EOF; i++ ) {
@@ -17,21 +17,23 @@ int indent(char* src) {
 					if ( i < 0 ) break;
 			}
 		}
-	if( src[len] != '\n') ins_c_at_n(len, src, '\n');
+	if( src[i] != '\n') ins_c_at_n(i, src, '\n');
 	if( src[0] != '\n') ins_c_at_n(0, src, '\n');
 	}	
-************************************************/
+/************************************************/
 
-	int unmod_count, mod_count;
+	int unmod_count, mod_count;    
 	unmod_count = mod_count = 0;
 	//delete all spaces and /t at the beginning of a line
 	{
 		int i;
 		for ( i = 0; src[i] != EOF; i++ ) {
 			while ( src[i] == '\n' && 
-					( src[i + 1] == ' ' ||
-					src[i + 1] == '\t' )||
-					src[i + 1] == '\n'  /*del surplus \n*/
+					(
+					src[i + 1] == ' ' ||
+					src[i + 1] == '\t'||
+					src[i + 1] == '\n'/*del surplus \n*/
+					)
 				)
 			{
 					del_at_n(i + 1, src);
@@ -64,9 +66,11 @@ int indent(char* src) {
 		}
 	}
 	float rate = 0;
-	mod_count > unmod_count? rate = 1.0 * unmod_count / mod_count: 
-			rate = 1.0 * mod_count / unmod_count;
-	printf("You've got %.2f for your coding style\n", rate);
+	if (mod_count > unmod_count)
+	rate = 1.0 * unmod_count /(float) mod_count;
+	else
+	rate = 1.0 * mod_count / (float)unmod_count;
+	printf("You've got %.2f/1.00 for your coding style\n", rate);
 
 	return 0;
 }

@@ -71,6 +71,7 @@ int parse_char2file(const char* filename, char* src) {
 	for (i = 0; src[i] - EOF; i++) {
 		fputc(src[i], fout);
 	}
+//	fputc(0, fout);
 	fclose(fout);
 	return 0;
 }
